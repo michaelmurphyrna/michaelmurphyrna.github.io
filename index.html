@@ -141,13 +141,31 @@
                 font-size: 2rem;
             }
         
-        }/* PASTE THE CSS HERE */
-        .pub-image {
-            width: 600px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 4px;
-        }
+        /* 1. The Container defines the fixed size for ALL images */
+.pub-image-container {
+    width: 200px;  /* Fixed Width for the box */
+    height: 200px; /* Fixed Height for the box (Making it a square area) */
+    overflow: hidden; /* Important: Hides any part of the image that spills outside the box */
+    flex-shrink: 0; /* Ensures the box doesn't shrink in the flex layout */
+    border-radius: 4px; 
+}
+
+/* 2. The Image is told how to fill its container */
+.pub-image-container img {
+    width: 100%;
+    height: 100%;
+    /* Choose ONE of the following for the magic: */
+    
+    /* OPTION A: Fill the Box (recommended for publications) */
+    object-fit: cover;
+    /* The image will fill the entire 200x200px space, but parts of the image
+       will be cropped if the aspect ratio doesn't match the square box. */
+    
+    /* OPTION B: Fit inside the Box */
+    /* object-fit: contain; */
+    /* The whole image will be visible, but it might leave blank space (letterboxing)
+       in the box if the aspect ratio is very different from 200x200px. */
+}
         /* Header Section */
 .header {
     /* Background Image Setup */
@@ -173,6 +191,12 @@
     max-width: 600px;
     margin: 0 auto;
     color: white;
+}
+            .publication-item {
+    /* ... any other existing styles for this class ... */
+    
+    /* ADD THIS LINE: */
+    margin-bottom: 30px; 
 }
 /* End of Header CSS */
     </style>
@@ -212,11 +236,11 @@
         <h2>Publications</h2>
 
         <div class="publication-item">
-            <img src="images/Murphy2023.png" alt="Publication 1" class="pub-image">
             <div class="pub-content">
                 <h3>Long non-coding RNA generated from CDKN1A gene by alternative polyadenylation regulates p21 expression during DNA damage response</h3>
                 <p class="pub-authors"><b>Michael R Murphy</b>, Anthony Ramadei, Ahmet Doymaz, Sophia Varriano, Devorah M Natelson, Amy Yu, Sera Aktas, Marie Mazzeo, Michael Mazzeo, George Zakusilo, Frida E Kleiman</p>
                 <p class="pub-journal"><em>Nucleic Acids Research</em>, 2023</p>
+                <img src="images/Murphy2023.png" alt="Publication 1" class="pub-image-container">
                 <p>Add your brief description or abstract here. This is where you explain the key findings and significance of your work. You can write a few sentences summarizing what the paper is about and why it matters.</p>
                 <a href="papers/Murphy2023.pdf" target="_blank" class="pub-link">Download PDF →</a>
                 <a href="https://academic.oup.com/nar/article-abstract/51/21/11911/7327065" target="_blank" class="pub-link">Publisher Link →</a>
@@ -243,11 +267,11 @@
             </div>
             
         <div class="publication-item">
-            <img src="images/Murphy2020.png" alt="Publication 1" class="pub-image">
             <div class="pub-content">
                 <h3>Connections between 3′ end processing and DNA damage response: Ten years later</h3>
                 <p class="pub-authors"><b>Michael R Murphy</b> & Frida E. Kleiman</p>
                 <p class="pub-journal"><em>WIREs RNA</em>, 2020</p>
+                <img src="images/Murphy2020.png" alt="Publication 1" class="pub-image-container">
                 <p>Add your brief description or abstract here. This is where you explain the key findings and significance of your work. You can write a few sentences summarizing what the paper is about and why it matters.</p>
                 <a href="papers/Murphy2020.pdf" target="_blank" class="pub-link">Download PDF →</a>
                 <a href="https://wires.onlinelibrary.wiley.com/doi/epdf/10.1002/wrna.1571" target="_blank" class="pub-link">Publisher Link →</a>
@@ -255,11 +279,11 @@
         </div>
             
         <div class="publication-item">
-            <img src="images/Devany2016.png" alt="Publication 1" class="pub-image">
             <div class="pub-content">
                 <h3>Intronic cleavage and polyadenylation regulates gene expression during DNA damage response through U1 snRNA</h3>
                 <p class="pub-authors">Emral Devany*, Ji Yeon Park*, <b>Michael R Murphy</b>*, George Zakusilo, Jorge Baquero, Xiaokan Zhang, Mainul Hoque, Bin Tian, Frida E Kleiman</p>
                 <p class="pub-journal"><em>Cell Discovery</em>, 2016</p>
+                <img src="images/Devany2016.png" alt="Publication 1" class="pub-image-container">
                 <p>Add your brief description or abstract here. This is where you explain the key findings and significance of your work. You can write a few sentences summarizing what the paper is about and why it matters.</p>
                 <a href="papers/Devany2016.pdf" target="_blank" class="pub-link">Download PDF →</a>
                 <a href="https://www.nature.com/articles/celldisc201613" target="_blank" class="pub-link">Publisher Link →</a>
